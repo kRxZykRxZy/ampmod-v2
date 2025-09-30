@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "test": "npm run test --workspaces",
-        "prepare": "husky && npm run prepare --workspaces",
+        "prepare": "npm run prepare --workspaces",
         "build": "npm run build --workspace packages/gui",
         "ci-build": "npm run ci-build --workspace packages/gui",
         "start": "npm run start --workspace packages/gui"
