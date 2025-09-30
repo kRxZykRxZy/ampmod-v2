@@ -232,6 +232,7 @@ module.exports = [
             home: "./src/playground/home/home.jsx",
             notfound: "./src/playground/not-found/not-found.jsx",
             newcompiler: "./src/playground/new-compiler/new-compiler.jsx",
+            headeronly: "./src/playground/header-only.jsx",
         },
         output: {
             path: path.resolve(__dirname, "build"),
@@ -261,6 +262,12 @@ module.exports = [
                 "process.env.ampmod_is_canary":
                     process.env.BUILD_MODE === "canary",
                 "process.env.ampmod_is_cbp": IS_CBP_BUILD,
+            }),
+            new HtmlWebpackPlugin({
+                chunks: ["headeronly"],
+                template: "src/playground/privacy.ejs",
+                filename: "privacy.html",
+                ...htmlWebpackPluginCommon,
             }),
             new HtmlWebpackPlugin({
                 chunks: ["editor"],

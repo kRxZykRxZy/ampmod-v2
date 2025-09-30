@@ -249,4 +249,10 @@ const render = children => {
     }
 };
 
+export const renderToBottom = children => {
+    if (!migrationOccurred) {
+        ReactDOM.render(children, document.getElementById("app-footer"));
+    }
+};
+
 export default render;

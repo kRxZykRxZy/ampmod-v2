@@ -4,6 +4,7 @@
     padding: 10px 0;
     margin-top: 10px;
     border-top: 2px solid $ui-black-transparent;
+    width: 100%;
 }
 .footer a {
     font-weight: bold;
