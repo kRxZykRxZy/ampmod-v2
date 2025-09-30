@@ -1,0 +1,36 @@
+name: Build and Deploy GUI
+
+on:
+  push:
+    branches:
+      - main  # Change if your default branch is different
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' # Use the Node.js version you need
+
+      - name: Regenerate package-lock.json
+        run: |
+          rm -f package-lock.json
+          npm install --package-lock-only
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run ci-build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v7
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: packages/gui/build
