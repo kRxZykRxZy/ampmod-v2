@@ -14,6 +14,8 @@
  * APP_WIKI and APP_FORUMS - URLs to your wiki and forum, or set to null if unavailable. URLs should be absolute.
  * Also add APP_FORUMS_BUGS for links where you want to report a bug on the forums.
  *
+ * APP_BLOG - Link to your blog or announcement page, if you have one.
+ *
  * SEO_DESCRIPTION - SEO-friendly description used on main and editor pages.
  */
 
@@ -26,5 +28,6 @@ module.exports.APP_DESCRIPTION = `${module.exports.APP_NAME} is a powerful block
 module.exports.APP_CONTACT = "https://codeberg.org/ampmod/ampmod/issues";
 module.exports.APP_WIKI = "https://ampmod.miraheze.org";
 module.exports.APP_FORUMS = "https://ampmod.flarum.cloud";
+module.exports.APP_BLOG = "https://ampmod.flarum.cloud/blog";
 module.exports.APP_FORUMS_BUGS =
     "https://ampmod.flarum.cloud/t/bugs-and-glitches";

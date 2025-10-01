@@ -20,7 +20,18 @@
           <% /* If you are forkimg, you will need to remove or replace google-site-verification,
            and if you don't use Simple Analytics you will want to remove or replace that script too. */ %>
           <meta name="google-site-verification" content="xMC75_ZeQyXE1iaRV31N-hOLPJVubcfmiKfoiOqcNH8" /> 
-          <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+          <script>
+          (function() {
+            const optedOut = localStorage.getItem('amp:analytics-opted-out') === 'true';
+
+            if (!optedOut) {
+              const script = document.createElement('script');
+              script.async = true;
+              script.src = 'https://scripts.simpleanalyticscdn.com/latest.js';
+              document.head.appendChild(script);
+            }
+          })();
+        </script>
         <% } %>
         <style>
             body[data-splash-theme="dark"] {

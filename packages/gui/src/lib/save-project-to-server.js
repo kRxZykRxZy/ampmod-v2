@@ -14,12 +14,15 @@ import storage from "../lib/storage";
  * @property {?string} params.title the title of the project.
  * @return {Promise} A promise that resolves when the network request resolves.
  */
+
+const ssid = localStorage.getItem('ssid');
 export default function (projectId, vmState, params) {
     const opts = {
         body: vmState,
         // If we set json:true then the body is double-stringified, so don't
         headers: {
             "Content-Type": "application/json",
+            "x-api-key": ssid
         },
         withCredentials: true,
     };
